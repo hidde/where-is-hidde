@@ -14,3 +14,18 @@ templateClass: tmpl-post
   {% endif %}
   <p style="text-align: center;"><a href="{{ '/' | url }}">All photos</a></p>
 </div>
+
+  <script>
+    {% include "colorthief.js" %}
+    const colorThief = new ColorThief();
+    const img = document.querySelector('img');
+
+    // Make sure image is finished loading
+    if (img.complete) {
+      console.log(colorThief.getColor(img));
+    } else {
+      img.addEventListener('load', function() {
+        console.log(colorThief.getColor(img));
+      });
+    }
+    </script>
