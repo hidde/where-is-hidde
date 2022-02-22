@@ -3,8 +3,13 @@ import {format} from 'date-fns'
 export default {
   name: 'post',
   type: 'document',
-  title: 'Blog Post',
+  title: 'Photographic evidence',
   fields: [
+    {
+      name: 'mainImage',
+      type: 'mainImage',
+      title: 'Main image'
+    },
     {
       name: 'title',
       type: 'string',
@@ -28,11 +33,6 @@ export default {
       description: 'This can be used to schedule post for publishing'
     },
     {
-      name: 'mainImage',
-      type: 'mainImage',
-      title: 'Main image'
-    },
-    {
       name: 'excerpt',
       type: 'excerptPortableText',
       title: 'Excerpt',
@@ -40,27 +40,12 @@ export default {
         'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
-      name: 'authors',
-      title: 'Authors',
-      type: 'array',
-      of: [
-        {
-          type: 'authorReference'
-        }
-      ]
-    },
-    {
       name: 'categories',
-      type: 'array',
-      title: 'Categories',
-      of: [
-        {
-          type: 'reference',
-          to: {
-            type: 'category'
-          }
-        }
-      ]
+      title: 'Where was this?',
+      type: 'reference',
+      to: {
+        type: 'category'
+      }
     },
     {
       name: 'body',

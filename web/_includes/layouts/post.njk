@@ -2,9 +2,15 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<article>
+
+<img src="{% sanityImageUrl post.mainImage.asset._ref %}" alt="{{ post.mainImage.alt }}" title="{{ post.title }}" width="100%" />
+<div style="max-width: 40em; margin: 1em auto;">
   <h1>{{ post.title }}</h1>
-  <p>Written by {% for author in post.authors %}{{author.name}}{% endfor %}  </p>
-  {{ post.body | markdownify | safe }}
-  <p><a href="{{ '/' | url }}">← Home</a></p>
-</article>
+  <time class="postlist-date" datetime="{{ post.publishedAt }}">
+    {{ post.publishedAt|readableDate }}
+  </time>
+  {% if post.body %}
+  <p><span class="text-transform: uppercase">{{ post.categories }}</span> - {{ post.body | markdownify | safe }}
+  {% endif %}
+  <p style="text-align: center;"><a href="{{ '/' | url }}">All photos</a></p>
+</div>

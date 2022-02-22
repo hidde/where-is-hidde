@@ -6,6 +6,6 @@ module.exports = {
     authorReference: ({node}) => `[${node.name}](/authors/${node.slug.current})`,
     code: ({node}) =>
       '```' + node.language + '\n' + node.code + '\n```',
-    mainImage: ({node}) => `![${node.alt}](${imageUrl(node).width(600).url()})`
+    mainImage: ({node}) => `![${node.alt}](${imageUrl(node).width(1200).url()})`
   }
 }
