@@ -3,7 +3,8 @@
 }
 
 html {
-  background-color: #292929;
+  --headerColour: black;
+  background-color: var(--headerColour);
   color: white;
   font-family: sans-serif;
 }
@@ -22,6 +23,7 @@ header {
   font-family: "Fredoka One", sans-serif;
   text-transform: uppercase;
   background-color: #07579d;
+  background-color: var(--header-colour);
   padding: .25em;
   margin-bottom: 0.125em;
   text-align: center;

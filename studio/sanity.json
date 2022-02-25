@@ -13,6 +13,7 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/dashboard",
+    "@sanity/vision",
     "@sanity/desk-tool",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",

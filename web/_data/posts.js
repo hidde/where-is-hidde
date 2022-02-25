@@ -21,20 +21,19 @@ async function getPosts () {
     title,
     slug,
     mainImage,
+    "mainImageMeta": *[_type=="sanity.imageAsset" && _id == ^.mainImage.asset._ref][0]{
+       ...,
+      "palette": metadata.palette,
+      "location": metadata.location
+    },
     body[]{
       ...,
       children[]{
         ...,
-        // Join inline reference
-        _type == "authorReference" => {
-          // check /studio/documents/authors.js for more fields
-          "name": @.author->name,
-          "slug": @.author->slug
-        }
-      }
+      },
     },
-    "authors": authors[].author->
   }`
+
   const order = `| order(publishedAt asc)`
   const query = [filter, projection, order].join(' ')
   const docs = await client.fetch(query).catch(err => console.error(err))

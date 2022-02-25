@@ -7,6 +7,9 @@ templateClass: tmpl-post
 <div style="max-width: 40em; margin: 1em auto;">
   <h1>{{ post.title }}</h1>
   <time class="postlist-date" datetime="{{ post.publishedAt }}">
+    {% if post._id == "d62828d2-2e71-462d-bca5-2e973f58378c" %}
+    {{ post | log }}
+    {% endif %}
     {{ post.publishedAt|readableDate }}
   </time>
   {% if post.body %}
@@ -15,17 +18,10 @@ templateClass: tmpl-post
   <p style="text-align: center;"><a href="{{ '/' | url }}">All photos</a></p>
 </div>
 
-  <script>
-    {% include "colorthief.js" %}
-    const colorThief = new ColorThief();
-    const img = document.querySelector('img');
-
-    // Make sure image is finished loading
-    if (img.complete) {
-      console.log(colorThief.getColor(img));
-    } else {
-      img.addEventListener('load', function() {
-        console.log(colorThief.getColor(img));
-      });
-    }
-    </script>
+{% if post.mainImageMeta.palette %}
+<style>
+html {
+  --header-colour: {{ post.mainImageMeta.palette.dominant.background }};
+}
+</style>
+{% endif %}

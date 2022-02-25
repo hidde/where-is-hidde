@@ -3,9 +3,9 @@
   {% set currentPost = post.data.post %}
   <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
     <a href="{{ post.url | url }}" class="postlist-link">
+
       <img src="{% sanityImageUrl currentPost.mainImage.asset._ref, '300' %}" alt="{{ currentPost.mainImage.alt }}" title="{{ currentPost.title }}" />
       <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
-        {{ currentPost.publishedAt|readableDate }}
       </time>
     </a>
   </li>

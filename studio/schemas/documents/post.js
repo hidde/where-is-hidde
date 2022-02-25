@@ -14,7 +14,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long'
+      description: 'Titles should be catchy-ish, descriptive, and not too long'
     },
     {
       name: 'slug',

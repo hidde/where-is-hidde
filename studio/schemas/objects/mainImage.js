@@ -19,6 +19,15 @@ export default {
       options: {
         isHighlighted: true
       }
+    },
+    {
+      name: 'boo',
+      type: 'string',
+      title: 'A nonsensical field for fun',
+      description: 'What\'s on this picture?',
+      options: {
+        isHighlighted: true
+      }
     }
   ],
   preview: {
