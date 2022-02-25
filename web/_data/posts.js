@@ -22,9 +22,7 @@ async function getPosts () {
     slug,
     mainImage,
     "mainImageMeta": *[_type=="sanity.imageAsset" && _id == ^.mainImage.asset._ref][0]{
-       ...,
-      "palette": metadata.palette,
-      "location": metadata.location
+       ...metadata
     },
     body[]{
       ...,

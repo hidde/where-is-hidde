@@ -2,14 +2,10 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-
-<img src="{% sanityImageUrl post.mainImage.asset._ref %}" alt="{{ post.mainImage.alt }}" title="{{ post.title }}" width="100%" />
-<div style="max-width: 40em; margin: 1em auto;">
+<img src="{% sanityImageUrl post.mainImage.asset._ref %}" alt="{{ post.mainImage.alt }}" title="{{ post.title }}" style="max-height: 80vh; display: block; margin: 0 auto;" />
+<div style="max-width: 40em; margin: 1em auto; text-align: left;">
   <h1>{{ post.title }}</h1>
   <time class="postlist-date" datetime="{{ post.publishedAt }}">
-    {% if post._id == "d62828d2-2e71-462d-bca5-2e973f58378c" %}
-    {{ post | log }}
-    {% endif %}
     {{ post.publishedAt|readableDate }}
   </time>
   {% if post.body %}
