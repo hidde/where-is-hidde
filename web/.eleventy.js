@@ -21,9 +21,9 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addNunjucksShortcode("sanityImageUrl", function(source, width) {
     if (width) {
-      return imageUrl(source).width(width)
+      return imageUrl(source).width(width).auto('format')
     } else {
-      return imageUrl(source)
+      return imageUrl(source).auto('format')
     }
   });
 
