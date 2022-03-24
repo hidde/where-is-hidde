@@ -27,12 +27,12 @@ templateClass: tmpl-post
   {% endif %}
   <p style="text-align: center;"><a href="{{ '/' | url }}">All photos</a></p>
 </div>
-
-{% if post.mainImage.palette %}
+{% set palette = post.mainImage.asset.metadata.palette %}
+{% if palette %}
 <style>
 html {
-  --header-background-colour: {{ post.mainImage.palette.darkVibrant.background }};
-  --header-colour: {{ post.mainImage.palette.darkVibrant.title}};
+  --header-background-colour: {{ palette.darkVibrant.background }};
+  --header-colour: {{ palette.darkVibrant.title}};
 }
 </style>
 {% endif %}
