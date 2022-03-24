@@ -27,13 +27,18 @@
     <email>{{ metadata.author.email }}</email>
   </author>
   {%- for post in collections.posts %}
-  {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  {% set currentPost = post.data.post %}
+  {{ currentPost | log }}
+  {% set absolutePostUrl %}{{ currentPost.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
-    <title>{{ post.data.title }}</title>
+    <title>{{ currentPost.title }}</title>
     <link href="{{ absolutePostUrl }}"/>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    <content type="html">
+      <img src="{{ currentPost.mainImage.asset.url }}" alt="{{ currentPost.alt }}" />
+      {{ currentPost.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+    </content>
   </entry>
   {%- endfor %}
 </feed>
