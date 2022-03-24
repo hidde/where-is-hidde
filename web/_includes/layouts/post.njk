@@ -20,7 +20,7 @@ templateClass: tmpl-post
 <div style="max-width: 40em; margin: 1em auto; text-align: left;">
   <h1>{{ post.title }}</h1>
   <time class="postlist-date" datetime="{{ post.publishedAt }}">
-    {{ post.publishedAt|readableDate }}
+    {{ post.date|readableDate }}
   </time>
   {% if post.body %}
   <p><span class="text-transform: uppercase">{{ post.categories }}</span> - {{ post.body | markdownify | safe }}

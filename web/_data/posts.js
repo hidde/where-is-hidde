@@ -17,7 +17,7 @@ async function getPosts () {
   const filter = groq`*[_type == "post" && defined(slug) && publishedAt < now()]`
   const projection = groq`{
     _id,
-    publishedAt,
+    "date": publishedAt,
     title,
     slug,
     mainImage,
