@@ -22,14 +22,16 @@ body {
 header {
   font-family: "Fredoka One", sans-serif;
   text-transform: uppercase;
-  background-color: #07579d;
-  background-color: var(--header-colour);
+  background-color: #000;
+  background-color: var(--header-background-colour);
+  color: #fff;
+  color: var(--header-colour);
   padding: .25em;
   margin-bottom: 0.125em;
   text-align: center;
 }
   header a {
-    color: white;
+    color: inherit;
     text-decoration: none;
   }
   header ul,
