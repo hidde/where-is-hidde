@@ -3,8 +3,7 @@
   {% set currentPost = post.data.post %}
   <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
     <a href="{{ post.url | url }}" class="postlist-link">
- {{ currentPost.mainImageMeta | log }}
-      <img src="{% sanityImageUrl currentPost.mainImage.asset._ref, '300' %}&h=300&fit=crop&crop=focalpoint&auto=format" alt="{{ currentPost.mainImage.alt }}" title="{{ currentPost.title }}" />
+      <img src="{% sanityImageUrl currentPost.mainImage.asset._id, '300' %}&h=300&fit=crop&crop=focalpoint&auto=format" alt="{{ currentPost.mainImage.alt }}" title="{{ currentPost.title }}" />
       <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
       </time>
     </a>

@@ -2,9 +2,12 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<img src="{% sanityImageUrl post.mainImage.asset._ref %}" alt="{{ post.mainImage.alt }}" title="{{ post.title }}" style="max-height: 80vh; display: block; margin: 0 auto;" />
+<img src="{% sanityImageUrl post.mainImage.asset._id %}" alt="{{ post.mainImage.alt }}" title="{{ post.title }}" style="max-height: 80vh; display: block; margin: 0 auto;" />
 <div style="max-width: 40em; margin: 1em auto; text-align: left;">
   <h1>{{ post.title }}</h1>
+{{ post.mainImage.asset.metadata.location.lat }}, 
+{{ post.mainImage.asset.metadata.location.lng }}
+
   <time class="postlist-date" datetime="{{ post.publishedAt }}">
     {{ post.publishedAt|readableDate }}
   </time>
@@ -14,10 +17,10 @@ templateClass: tmpl-post
   <p style="text-align: center;"><a href="{{ '/' | url }}">All photos</a></p>
 </div>
 
-{% if post.mainImageMeta.palette %}
+{% if post.mainImage.palette %}
 <style>
 html {
-  --header-colour: {{ post.mainImageMeta.palette.dominant.background }};
+  --header-colour: {{ post.mainImage.palette.dominant.background }};
 }
 </style>
 {% endif %}
