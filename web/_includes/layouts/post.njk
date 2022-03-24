@@ -11,7 +11,7 @@ templateClass: tmpl-post
     display: flex;
     max-width: 1600px;
     margin: 0 auto;
-    background-color: {{ post.mainImageMeta.palette.dominant.background }};
+    background-color: {{ post.mainImageMeta.palette.darkVibrant.background }};
     width: 100%;
     place-content: center;
     aspect-ratio: {{ ( post.mainImageMeta.dimensions.width / post.mainImageMeta.dimensions.height ) * 100 }} / 100;
@@ -31,8 +31,8 @@ templateClass: tmpl-post
 {% if post.mainImageMeta.palette %}
 <style>
 html {
-  --header-background-colour: {{ post.mainImageMeta.palette.dominant.background }};
-  --header-colour: {{ post.mainImageMeta.palette.dominant.foreground }};
+  --header-background-colour: {{ post.mainImageMeta.palette.darkVibrant.background }};
+  --header-colour: {{ post.mainImageMeta.palette.darkVibrant.title}};
 }
 </style>
 {% endif %}
