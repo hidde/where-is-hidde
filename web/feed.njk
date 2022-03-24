@@ -33,11 +33,11 @@
   <entry>
     <title>{{ currentPost.title }}</title>
     <link href="{{ absolutePostUrl }}"/>
-    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <updated>{{ currentPost.date }}</updated>
     <id>{{ absolutePostUrl }}</id>
     <content type="html">
-      <img src="{{ currentPost.mainImage.asset.url }}" alt="{{ currentPost.alt }}" />
-      {{ currentPost.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+      <img src="{{ currentPost.mainImage.asset.url }}" alt="{{ currentPost.mainImage.alt }}" />
+      {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
     </content>
   </entry>
   {%- endfor %}
