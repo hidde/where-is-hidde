@@ -20,16 +20,10 @@ async function getPosts () {
     "date": publishedAt,
     title,
     slug,
-    mainImage,
-    "mainImageMeta": *[_type=="sanity.imageAsset" && _id == ^.mainImage.asset._ref][0]{
-       ...metadata
-    },
-    body[]{
+    mainImage {
       ...,
-      children[]{
-        ...,
-      },
-    },
+      asset->
+    }
   }`
 
   const order = `| order(publishedAt asc)`

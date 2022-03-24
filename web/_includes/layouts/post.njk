@@ -3,7 +3,7 @@ layout: layouts/base.njk
 templateClass: tmpl-post
 ---
 <img
-  src="{% sanityImageUrl post.mainImage.asset._ref, 1600 %}"
+  src="{% sanityImageUrl post.mainImage.asset._id, 1600 %}"
   alt="{{ post.mainImage.alt }}"
   title="{{ post.title }}"
   lazyload="true"
@@ -11,10 +11,10 @@ templateClass: tmpl-post
     display: flex;
     max-width: 1600px;
     margin: 0 auto;
-    background-color: {{ post.mainImageMeta.palette.darkVibrant.background }};
+    background-color: {{ post.mainImage.palette.darkVibrant.background }};
     width: 100%;
     place-content: center;
-    aspect-ratio: {{ ( post.mainImageMeta.dimensions.width / post.mainImageMeta.dimensions.height ) * 100 }} / 100;
+    aspect-ratio: {{ ( post.mainImage.dimensions.width / post.mainImage.dimensions.height ) * 100 }} / 100;
   "
 />
 <div style="max-width: 40em; margin: 1em auto; text-align: left;">
@@ -28,11 +28,11 @@ templateClass: tmpl-post
   <p style="text-align: center;"><a href="{{ '/' | url }}">All photos</a></p>
 </div>
 
-{% if post.mainImageMeta.palette %}
+{% if post.mainImage.palette %}
 <style>
 html {
-  --header-background-colour: {{ post.mainImageMeta.palette.darkVibrant.background }};
-  --header-colour: {{ post.mainImageMeta.palette.darkVibrant.title}};
+  --header-background-colour: {{ post.mainImage.palette.darkVibrant.background }};
+  --header-colour: {{ post.mainImage.palette.darkVibrant.title}};
 }
 </style>
 {% endif %}
