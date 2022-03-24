@@ -2,7 +2,21 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<img src="{% sanityImageUrl post.mainImage.asset._ref %}" alt="{{ post.mainImage.alt }}" title="{{ post.title }}" style="max-height: 80vh; display: block; margin: 0 auto;" />
+<img
+  src="{% sanityImageUrl post.mainImage.asset._ref, 1600 %}"
+  alt="{{ post.mainImage.alt }}"
+  title="{{ post.title }}"
+  lazyload="true"
+  style="
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: {{ post.mainImageMeta.palette.dominant.background }};
+    width: 100%;
+    place-content: center;
+    aspect-ratio: {{ ( post.mainImageMeta.dimensions.width / post.mainImageMeta.dimensions.height ) * 100 }} / 100;
+  "
+/>
 <div style="max-width: 40em; margin: 1em auto; text-align: left;">
   <h1>{{ post.title }}</h1>
   <time class="postlist-date" datetime="{{ post.publishedAt }}">
@@ -17,7 +31,8 @@ templateClass: tmpl-post
 {% if post.mainImageMeta.palette %}
 <style>
 html {
-  --header-colour: {{ post.mainImageMeta.palette.dominant.background }};
+  --header-background-colour: {{ post.mainImageMeta.palette.dominant.background }};
+  --header-colour: {{ post.mainImageMeta.palette.dominant.foreground }};
 }
 </style>
 {% endif %}
