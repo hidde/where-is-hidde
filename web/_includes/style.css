@@ -64,7 +64,12 @@ header {
     padding: 0;
     display: grid;
     gap: 0.25em;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  @media (min-width: 50em) {
+    .postlist {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
   }
     .postlist li {
       list-style: none;
