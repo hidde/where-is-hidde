@@ -47,11 +47,16 @@ header {
     font-weight: normal;
     line-height: 1.2;
     max-width: 25em;
-    font-size: 3em;
+    font-size: 1.75em;
   }
   h1 + time {
     font-size: smaller;
     font-weight: bold;
+  }
+  @media (min-width: 50em) {
+    h1 {
+      font-size: 3em;
+    }
   }
 
   img {
