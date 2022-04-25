@@ -6,7 +6,7 @@ html {
   --headerColour: black;
   background-color: var(--headerColour);
   color: white;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -20,7 +20,6 @@ body {
 }
 
 header {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -48,11 +47,16 @@ header {
     font-weight: normal;
     line-height: 1.2;
     max-width: 25em;
-    font-size: 3em;
+    font-size: 1.75em;
   }
   h1 + time {
     font-size: smaller;
     font-weight: bold;
+  }
+  @media (min-width: 50em) {
+    h1 {
+      font-size: 3em;
+    }
   }
 
   img {
@@ -64,7 +68,12 @@ header {
     padding: 0;
     display: grid;
     gap: 0.25em;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  @media (min-width: 50em) {
+    .postlist {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
   }
     .postlist li {
       list-style: none;
